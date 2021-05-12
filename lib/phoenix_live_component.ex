@@ -132,7 +132,7 @@ defmodule Phoenix.LiveComponent do
   extremely efficient.
 
   Any valid query selector for `phx-target` is supported, provided that the
-  matched nodes are children of a LiveView or LiveComponent, for example
+  matched nodes are children of a LiveView or LiveComponent. For example,
   to send the `close` event to multiple components:
 
       <a href="#" phx-click="close" phx-target="#modal, #sidebar">
