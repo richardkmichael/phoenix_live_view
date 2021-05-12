@@ -127,7 +127,7 @@ defmodule Phoenix.LiveComponent do
       </a>
 
   In both cases, `c:handle_event/3` will be called with the
-  "say_hello" event. When `c:handle_event/3` is called for a component,
+  `say_hello` event. When `c:handle_event/3` is called for a component,
   only the diff of the component is sent to the client, making it
   extremely efficient.
 
