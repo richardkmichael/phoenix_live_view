@@ -1,11 +1,11 @@
 defmodule Phoenix.LiveComponent do
   @moduledoc """
-  Components are a mechanism to compartmentalize state, markup, and
-  events in LiveView.
+  A LiveComponent is a mechanism to compartmentalize state, markup, and
+  events in a LiveView.
 
-  Components are defined by using `Phoenix.LiveComponent` and are used
+  A component is defined by using `Phoenix.LiveComponent` and used
   by calling `Phoenix.LiveView.Helpers.live_component/3` in a parent LiveView.
-  Components run inside the LiveView process, but may have their own
+  A component runs inside the LiveView process, but may have its own
   state and event handling.
 
   The simplest component only needs to define a `c:render/1` function:
@@ -27,12 +27,12 @@ defmodule Phoenix.LiveComponent do
 
       <%= live_component HeroComponent, content: @content %>
 
-  Components come in two shapes, stateless or stateful. The component
+  A component comes in two shapes, stateless or stateful. The component
   above is a stateless component. Of course, the component above is not
   any different compared to a regular function. However, as we will see,
-  components do provide their own exclusive feature set.
+  a component its own exclusive feature set.
 
-  ## Stateless components life-cycle
+  ## Stateless component life-cycle
 
   When [`live_component/3`](`Phoenix.LiveView.Helpers.live_component/3`) is called, the following callbacks will be invoked
   in the component:
@@ -47,18 +47,18 @@ defmodule Phoenix.LiveComponent do
   called with all assigns.
 
   A stateless component is always mounted, updated, and rendered whenever
-  the parent template changes. That's why they are stateless: no state
+  the parent template changes. That's why it is stateless: no state
   is kept after the component.
 
-  However, any component can be made stateful by passing an `:id` assign.
+  However, a component can be made stateful by passing an `:id` assign.
 
-  ## Stateful components life-cycle
+  ## Stateful component life-cycle
 
   A stateful component is a component that receives an `:id` on [`live_component/3`](`Phoenix.LiveView.Helpers.live_component/3`):
 
       <%= live_component HeroComponent, id: :hero, content: @content %>
 
-  Stateful components are identified by the component module and their ID.
+  A stateful component is identified by the component module and their ID.
   Therefore, two different component modules with the same ID are different
   components. This means we can often tie the component ID to some application
   based ID:
@@ -79,7 +79,7 @@ defmodule Phoenix.LiveComponent do
       end
 
   It is recommended to have only a single root element in the HTML template
-  for stateful components. LiveView will emit warnings in future versions if
+  for a stateful component. LiveView will emit warnings in future versions if
   this is not the case.
 
   The assigns given to [`live_component/3`](`Phoenix.LiveView.Helpers.live_component/3`)
@@ -89,7 +89,7 @@ defmodule Phoenix.LiveComponent do
   maps for all instances of the component in the parent LiveView, see
   below for an example of how this may be helpful.
 
-  In stateful components, `c:mount/1` is called only once, when the
+  In a stateful component, `c:mount/1` is called only once, when the
   component is first rendered. For each rendering, the optional
   `c:preload/1` and `c:update/2` callbacks are called before `c:render/1`.
 
@@ -101,10 +101,10 @@ defmodule Phoenix.LiveComponent do
 
       preload(list_of_assigns) -> update(assigns, socket) -> render(assigns)
 
-  ## Targeting Component Events
+  ## Targeting component events
 
-  Stateful components can also implement the `c:handle_event/3` callback
-  that works exactly the same as in LiveView. For a client event to
+  A stateful component can also implement the `c:handle_event/3` callback
+  that works exactly the same as in a LiveView. For a client event to
   reach a component, the tag must be annotated with a `phx-target`.
   If you want to send the event to yourself, you can simply use the
   `@myself` assign, which is an *internal unique reference* to the
@@ -114,7 +114,7 @@ defmodule Phoenix.LiveComponent do
         Say hello!
       </a>
 
-  Note `@myself` is not set for stateless components, as they cannot
+  Note `@myself` is not set for a stateless component, as it cannot
   receive events.
 
   If you want to target another component, you can also pass an ID
@@ -128,7 +128,7 @@ defmodule Phoenix.LiveComponent do
 
   In both cases, `c:handle_event/3` will be called with the
   "say_hello" event. When `c:handle_event/3` is called for a component,
-  only the diff of the component is sent to the client, making them
+  only the diff of the component is sent to the client, making it
   extremely efficient.
 
   Any valid query selector for `phx-target` is supported, provided that the
@@ -301,7 +301,7 @@ defmodule Phoenix.LiveComponent do
   Once the card components are started, they can each manage their own
   card, without concerning themselves with the parent LiveView.
 
-  However, note that components do not have a `c:Phoenix.LiveView.handle_info/2`
+  However, note that a component does not have a `c:Phoenix.LiveView.handle_info/2`
   callback. Therefore, if you want to track distributed changes on a card,
   you must have the parent LiveView receive those events and redirect them
   to the appropriate card. For example, assuming card updates are sent
@@ -395,7 +395,7 @@ defmodule Phoenix.LiveComponent do
   the view and the component will share the same copies of the `@user`
   and `@org` assigns.
 
-  You should also avoid using stateful components to provide abstract DOM
+  You should also avoid using a stateful component to provide an abstract DOM
   components. As a guideline, a good LiveComponent encapsulates
   application concerns and not DOM functionality. For example, if you
   have a page that shows products for sale, you can encapsulate the
@@ -479,11 +479,11 @@ defmodule Phoenix.LiveComponent do
 
   ### SVG support
 
-  Given components compartmentalize markup on the server, they are also
+  Given a component compartmentalizes markup on the server, it is also
   rendered in isolation on the client, which provides great performance
   benefits on the client too.
 
-  However, when rendering components on the client, the client needs to
+  However, when rendering a component on the client, the client needs to
   choose the mime type of the component contents, which defaults to HTML.
   This is the best default but in some cases it may lead to unexpected
   results.
