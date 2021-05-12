@@ -394,7 +394,9 @@ defmodule Phoenix.LiveComponent do
   Luckily, because LiveViews and LiveComponents are in the same process,
   they share the same data structures. For example, in the code above,
   the view and the component will share the same copies of the `@user`
-  and `@org` assigns.
+  and `@org` assigns.  Although this is helpful to reduce memory use, it
+  is also why either the LiveView or the LiveComponent, and not both, should
+  be the sourth of truth (change the data).
 
   You should also avoid using a stateful component to provide an abstract DOM
   components. As a guideline, a good LiveComponent encapsulates
