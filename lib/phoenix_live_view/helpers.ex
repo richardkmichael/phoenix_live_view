@@ -192,19 +192,17 @@ defmodule Phoenix.LiveView.Helpers do
   to a LiveView, except it runs in the same process as the parent
   `LiveView` and has its own encapsulated state.
 
-  LiveComponent may be either stateful or stateless, see
-  `Phoenix.LiveComponent` for more information.
+  The `update/2` callback in the component will receive the assigns. If
+  `update/2` is not defined, the assigns are merged to the LiveView socket
+  assigns after `mount/1` is called.
 
-  The `assigns` are either received by the component's optional
-  `preload/2` if defined, or otherwise automatically merged to the
-  parent LiveView socket assigns after the component's `mount/1`
-  (therefore overriding existing assigns of the same name already in
-  the socket).
+  A LiveComponent may be either stateful or stateless.  If the assigns include
+  an `:id`, the LiveComponent will be stateful.  Otherwise, the component will
+  be stateless, and `:id` will be `nil`.  Note, in a stateful component, the
+  `:id` will not automatically be used as the DOM ID for the component element.
 
-  Note the `:id` won't necessarily be used as the DOM ID.
-  That's up to the component. However, note that the `:id` has
-  a special meaning: whenever an `:id` is given, the component
-  becomes stateful. Otherwise, `:id` is always set to `nil`.
+  Stateful components may also define `preload/1`, which will receive a list of
+  the assigns of all components of a given type.
 
   ## Examples
 
