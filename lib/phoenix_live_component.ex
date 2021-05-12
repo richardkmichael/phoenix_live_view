@@ -450,9 +450,8 @@ defmodule Phoenix.LiveComponent do
 
   ### Change tracking requirement
 
-  Another limitation of components is that they must always be change
-  tracked. For example, if you render a component inside `form_for`, like
-  this:
+  A component is always change tracked. For example, if you render a
+  component inside `form_for`:
 
       <%= form_for @changeset, "#", fn f -> %>
         <%= live_component SomeComponent, f: f %>
