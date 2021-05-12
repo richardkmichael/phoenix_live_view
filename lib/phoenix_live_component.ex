@@ -350,8 +350,8 @@ defmodule Phoenix.LiveComponent do
   Where the `:entry` assign was injected into the `do/end` block.
 
   Note the `@inner_block` assign is also passed to `c:update/2`
-  along with all other assigns. So if you have a custom `update/2`
-  implementation, make sure to assign it to the socket like so:
+  along with all other assigns. So if you implement the `c:update/2`
+  callback, make sure to assign `@inner_block` to the socket:
 
       def update(%{inner_block: inner_block}, socket) do
         {:ok, assign(socket, inner_block: inner_block)}
