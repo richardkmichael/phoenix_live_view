@@ -366,7 +366,7 @@ defmodule Phoenix.LiveComponent do
         new_assigns -> "New entry: " <> new_assigns[:entry]
       end
 
-  ## Live patches and live redirects
+  ## Live patch and live redirect
 
   A template rendered inside a component can use `Phoenix.LiveView.Helpers.live_patch/2` and
   `Phoenix.LiveView.Helpers.live_redirect/2` calls. The [`live_patch/2`](`Phoenix.LiveView.Helpers.live_patch/2`)
