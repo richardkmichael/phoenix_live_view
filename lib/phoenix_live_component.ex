@@ -329,7 +329,7 @@ defmodule Phoenix.LiveComponent do
   The `do/end` will be available in an assign named `@inner_block`.
   You can render its contents by calling `render_block` with the
   assign itself and a keyword list of assigns to inject into the rendered
-  content. For example, the grid component above could be implemented as:
+  content. For example, the GridComponent above could be implemented as:
 
       defmodule GridComponent do
         use Phoenix.LiveComponent
