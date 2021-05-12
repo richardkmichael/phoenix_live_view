@@ -387,7 +387,7 @@ defmodule Phoenix.LiveComponent do
 
       <%= live_component MyComponent, assigns %>
 
-  Instead pass only the keys that you need:
+  Instead pass only the assigns required by the component:
 
       <%= live_component MyComponent, user: @user, org: @org %>
 
