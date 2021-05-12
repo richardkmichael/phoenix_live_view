@@ -319,8 +319,8 @@ defmodule Phoenix.LiveComponent do
 
   ## LiveComponent blocks
 
-  When [`live_component/3`](`Phoenix.LiveView.Helpers.live_component/3`) is invoked, it is also possible to pass a `do/end`
-  block:
+  When [`live_component/3`](`Phoenix.LiveView.Helpers.live_component/3`) is
+  invoked, it is also possible to pass a `do/end` block:
 
       <%= live_component GridComponent, entries: @entries do %>
         New entry: <%= @entry %>
