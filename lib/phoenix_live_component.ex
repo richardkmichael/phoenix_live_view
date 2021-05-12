@@ -370,7 +370,7 @@ defmodule Phoenix.LiveComponent do
 
   A template rendered inside a component can use `Phoenix.LiveView.Helpers.live_patch/2` and
   `Phoenix.LiveView.Helpers.live_redirect/2` calls. The [`live_patch/2`](`Phoenix.LiveView.Helpers.live_patch/2`)
-  is always handled by the parent`LiveView`, as components do not provide `handle_params`.
+  is always handled by the parent`LiveView`, as a component does not provide `handle_params`.
 
   ## Cost of stateful components
 
