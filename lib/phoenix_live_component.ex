@@ -442,11 +442,11 @@ defmodule Phoenix.LiveComponent do
 
   ## Limitations
 
-  ### A component requires at least one HTML tag
+  ### A component top-level may only contain HTML tags
 
-  A component must only contain HTML tags at its root. At least one HTML
-  tag must be present. It is not possible to have a component that renders
-  only text or text mixed with tags at the root.
+  A component must only contain HTML tags at the top-level. At least one HTML
+  tag must be present. It is not possible for a component to render
+  only text or text mixed with tags at the top-level.
 
   ### Change tracking requirement
 
