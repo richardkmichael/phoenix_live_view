@@ -378,11 +378,11 @@ defmodule Phoenix.LiveComponent do
   The internal infrastructure LiveView uses to keep track of stateful
   components is very lightweight. However, be aware that in order to
   provide change tracking and to send diffs over the wire, all of the
-  components' assigns are kept in memory - exactly as it is done in
+  components' assigns are kept in memory - exactly as done for
   LiveViews themselves.
 
   Therefore it is your responsibility to keep only the assigns necessary
-  in each component. For example, avoid passing all of LiveView's assigns
+  in each component. For example, avoid passing all of a LiveView's assigns
   when rendering a component:
 
       <%= live_component MyComponent, assigns %>
@@ -495,7 +495,7 @@ defmodule Phoenix.LiveComponent do
   the `<img>` tag, since `<image>` is an obsolete HTML tag.
 
   Luckily, there is a solution to this problem. Since SVG allows `<svg>`
-  tags to be nested, you can wrap the component content into an `<svg>`
+  tags to be nested, you can wrap the component content in an `<svg>`
   tag. This will ensure that it is correctly interpreted by the browser.
   """
 
